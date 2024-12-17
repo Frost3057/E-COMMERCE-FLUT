@@ -15,7 +15,7 @@ class intro extends StatelessWidget{
           SizedBox(height: 130,),
           Image.asset('lib/Images/pngwing.com.png',width: 350,),
           SizedBox(height: 230,),
-          Text("Just Do It",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),),
+          Text("Just Do It",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
           Text("Premium sneakers by Nike",style: TextStyle(fontStyle: FontStyle.italic,color: Colors.black),),
           SizedBox(height: 40,),
           GestureDetector(
