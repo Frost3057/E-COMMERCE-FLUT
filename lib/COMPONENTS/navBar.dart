@@ -16,7 +16,7 @@ class navBar extends StatelessWidget {
       GButton(icon: Icons.shopping_cart,text: " Cart",
       )
     ], onTabChange: onTabChange,
-      tabBackgroundColor: Colors.white,
+      tabBackgroundColor: Colors.black26,
       tabBorderRadius: 8,mainAxisAlignment: MainAxisAlignment.center,
     activeColor: Colors.black26,));
   }

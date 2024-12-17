@@ -9,12 +9,12 @@ class intro extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightGreen[100],
+      backgroundColor: Colors.grey[100],
       body: Center(child: Column(
         children: [
           SizedBox(height: 130,),
-          Image.asset('lib/Images/pngwing.com.png',width: 350,),
-          SizedBox(height: 230,),
+          Image.asset('lib/Images/pngwing.com.png',width: 300,),
+          SizedBox(height: 300,),
           Text("Just Do It",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
           Text("Premium sneakers by Nike",style: TextStyle(fontStyle: FontStyle.italic,color: Colors.black),),
           SizedBox(height: 40,),

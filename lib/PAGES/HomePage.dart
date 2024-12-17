@@ -26,7 +26,7 @@ final List<Widget> pages = [
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightGreen[100],
+      backgroundColor: Colors.grey[100],
       bottomNavigationBar: navBar(onTabChange: (index)=>changePage(index),),
       body: pages[_selectedIndex],
     );
