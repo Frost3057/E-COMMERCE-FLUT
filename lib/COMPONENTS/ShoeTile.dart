@@ -1,10 +1,10 @@
 import 'package:ecommerce_app/DATA/Shoe.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ShoeTile extends StatelessWidget{
   Shoe shoe;
-  ShoeTile({super.key,required this.shoe});
+  void Function()? onTap;
+  ShoeTile({super.key,required this.shoe,required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,13 @@ class ShoeTile extends StatelessWidget{
                     ],
                   ),
                 ),
-                Container(
+                GestureDetector(onTap: onTap,child:Container(
                   width: 70,
                   height: 86,
                   decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.only(topLeft: Radius.circular(15),bottomRight: Radius.circular(15)),),
                   child: Icon(Icons.add,size: 30,color: Colors.white,),
-                ),
+                ) ,)
+                ,
               ],
             ),
 

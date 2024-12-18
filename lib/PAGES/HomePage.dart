@@ -1,7 +1,6 @@
 import 'package:ecommerce_app/COMPONENTS/navBar.dart';
 import 'package:ecommerce_app/PAGES/cart.dart';
 import 'package:ecommerce_app/PAGES/home.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget{

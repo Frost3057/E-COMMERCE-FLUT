@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'HomePage.dart';
 
 class intro extends StatelessWidget{
-  intro({super.key});
+  const intro({super.key});
 
   @override
   Widget build(BuildContext context) {

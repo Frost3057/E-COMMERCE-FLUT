@@ -1,5 +1,8 @@
+import 'package:ecommerce_app/DATA/ShoeModel.dart';
 import 'package:ecommerce_app/PAGES/HomePage.dart';
+import 'package:ecommerce_app/PAGES/cart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'PAGES/intro.dart';
 
@@ -12,13 +15,13 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider(create: (context)=> ShoeModel(),builder: (context,child) => MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: intro(),
-      routes: {
-        'homepage': (context) => HomePage()
-      },
-    );
+      home: const intro(),
+        routes: {
+          'homepage': (context) => HomePage()
+        }
+    ) ,);
   }
 
 }

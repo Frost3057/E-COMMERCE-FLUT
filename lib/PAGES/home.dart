@@ -1,7 +1,9 @@
 import 'package:ecommerce_app/COMPONENTS/ShoeTile.dart';
 import 'package:ecommerce_app/DATA/Shoe.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ecommerce_app/DATA/ShoeModel.dart';
+import 'package:ecommerce_app/PAGES/cart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget{
   Home({super.key});
@@ -10,9 +12,17 @@ class Home extends StatefulWidget{
 }
 
 class _state extends State<Home>{
+  void addtocart(Shoe shoe){
+    Provider.of<ShoeModel>(context,listen:false).addToCart(shoe);
+
+    showDialog(context: context, builder: (context)=>AlertDialog(
+        content: Text("Product added successfully 🥳🥳",style: TextStyle(fontWeight: FontWeight.bold),),
+    ));
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(backgroundColor: Colors.grey[100],),
+
+    return Consumer<ShoeModel>(builder: (context,value,child) => Scaffold(appBar: AppBar(backgroundColor: Colors.grey[100],),
       backgroundColor: Colors.grey[100],
       body:Padding(padding: EdgeInsets.all(25),child:
       Column(children: [
@@ -43,14 +53,14 @@ class _state extends State<Home>{
         SizedBox(height: 20,),
         // Sneakers
         Expanded(child: ListView.builder(itemBuilder: ( context, index){
-          Shoe shoe = Shoe("Air Force 3 Low x Nigo", 14995.00, "lib/Images/shoe1.webp");
-          return ShoeTile(shoe: shoe,);
+          Shoe shoe = value.getShop()[index];
+          return ShoeTile(shoe: shoe,onTap: ()=>addtocart(shoe),);
         },scrollDirection: Axis.horizontal,itemCount: 4,)),
         SizedBox(height: 50,)
 
       ],),
       ),
-    );
+    ));
   }
 
 }
