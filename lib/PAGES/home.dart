@@ -22,7 +22,8 @@ class _state extends State<Home>{
   @override
   Widget build(BuildContext context) {
 
-    return Consumer<ShoeModel>(builder: (context,value,child) => Scaffold(appBar: AppBar(backgroundColor: Colors.grey[100],),
+    return Consumer<ShoeModel>(builder: (context,value,child) => Scaffold(appBar: AppBar(backgroundColor: Colors.grey[100]
+      ,),
       backgroundColor: Colors.grey[100],
       body:Padding(padding: EdgeInsets.all(25),child:
       Column(children: [
@@ -56,7 +57,7 @@ class _state extends State<Home>{
           Shoe shoe = value.getShop()[index];
           return ShoeTile(shoe: shoe,onTap: ()=>addtocart(shoe),);
         },scrollDirection: Axis.horizontal,itemCount: 4,)),
-        SizedBox(height: 50,)
+        SizedBox(height: 120,)
 
       ],),
       ),

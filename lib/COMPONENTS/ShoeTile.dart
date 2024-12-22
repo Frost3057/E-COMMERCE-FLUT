@@ -13,9 +13,14 @@ class ShoeTile extends StatelessWidget{
       width: 300,
       decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(15)),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Image.asset(shoe.filePath,width: 300,),
+          SizedBox(height: 25,),
+          Container(
+            width: 250,
+            height: 250,
+            child:Image.asset(shoe.filePath,width: 300),
+            decoration: BoxDecoration(color:Colors.grey[100],borderRadius: BorderRadius.circular(25)),
+          ),SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
