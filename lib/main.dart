@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:ecommerce_app/DATA/ShoeModel.dart';
 import 'package:ecommerce_app/PAGES/HomePage.dart';
 import 'package:ecommerce_app/PAGES/cart.dart';
@@ -7,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'PAGES/intro.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(DevicePreview(builder: (context)=> const MyApp()) );
 }
 
 class MyApp extends StatelessWidget{

@@ -8,23 +8,25 @@ class intro extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    double h = MediaQuery.sizeOf(context).height;
+    double w = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      body: Center(child: Column(
+      body: Center(child:Column(
         children: [
-          SizedBox(height: 130,),
-          Image.asset('lib/Images/pngwing.com.png',width: 300,),
-          SizedBox(height: 300,),
+          SizedBox(height: h*0.075,),
+          Image.asset('lib/Images/pngwing.com.png',width: w*0.75,),
+          Expanded(child: SizedBox()),
           Text("Just Do It",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
           Text("Premium sneakers by Nike",style: TextStyle(fontStyle: FontStyle.italic,color: Colors.black),),
-          SizedBox(height: 40,),
+          SizedBox(height: 60,),
           GestureDetector(
             onTap: (){
               Navigator.pushNamed(context,'homepage');
             },
             child: Container(
-              height: 100,
-              width: 400,
+              height: 75,
+              width: w*0.75,
               decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.circular(10)),
               child: Center(child: Padding(padding: EdgeInsets.all(25),
                 child:Text("Shop Now",style: TextStyle(
@@ -33,8 +35,11 @@ class intro extends StatelessWidget{
                 ,) ,)),
             ),
           )
+        ,
+        SizedBox(height: h*0.075,)
         ],
-      )),
+      ),
+      ),
     );
   }
 

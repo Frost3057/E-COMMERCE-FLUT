@@ -22,24 +22,11 @@ class _state extends State<Home>{
   @override
   Widget build(BuildContext context) {
 
-    return Consumer<ShoeModel>(builder: (context,value,child) => Scaffold(appBar: AppBar(backgroundColor: Colors.grey[100]
+    return Consumer<ShoeModel>(builder: (context,value,child) => Scaffold(appBar: AppBar(automaticallyImplyLeading :false,backgroundColor:  Colors.grey[100]
       ,),
       backgroundColor: Colors.grey[100],
       body:Padding(padding: EdgeInsets.all(25),child:
       Column(children: [
-        //Search Bar
-        Container(
-          height: 50,
-          decoration: BoxDecoration(color:Colors.black26,borderRadius: BorderRadius.circular(8),),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.search),
-              Text("Search")
-            ],
-          ),
-        ),
-        SizedBox(height: 30,),
         //Message
         Text("everyone flies .... but some fly longer than others",style: TextStyle(color: Colors.black54,fontStyle: FontStyle.italic),),
         SizedBox(height: 30,),
@@ -53,12 +40,13 @@ class _state extends State<Home>{
         ),
         SizedBox(height: 20,),
         // Sneakers
-        Expanded(child: ListView.builder(itemBuilder: ( context, index){
-          Shoe shoe = value.getShop()[index];
-          return ShoeTile(shoe: shoe,onTap: ()=>addtocart(shoe),);
-        },scrollDirection: Axis.horizontal,itemCount: 4,)),
-        SizedBox(height: 120,)
-
+        Expanded(
+          child: ListView.builder(itemBuilder: ( context, index){
+            Shoe shoe = value.getShop()[index];
+            return ShoeTile(shoe: shoe,onTap: ()=>addtocart(shoe),);
+          },scrollDirection: Axis.horizontal,itemCount: 4,),
+        )
+      
       ],),
       ),
     ));

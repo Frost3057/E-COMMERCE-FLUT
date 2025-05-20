@@ -19,15 +19,12 @@ class _cart extends State<Cart>{
   Widget build(BuildContext context) {
    return Consumer<ShoeModel>(builder: (context,value,child){
      return Scaffold(
+      appBar: AppBar(automaticallyImplyLeading:false ,backgroundColor:Colors.grey[100],title: Text("Cart",style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.bold),) ,),
        backgroundColor: Colors.grey[100],
         body: Column(
           crossAxisAlignment:CrossAxisAlignment.start,children: [
-            SizedBox(height: 75,),
-          Padding(
-            padding: const EdgeInsets.only(left: 25.0),
-            child: Text("Cart",style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.bold),),
-          )
-          ,Expanded(child: ListView.builder(itemBuilder: (context,index){
+            SizedBox(height: 25,),
+            Expanded(child: ListView.builder(itemBuilder: (context,index){
             Shoe shoe = value.getCart()[index];
             return CartTile(shoe: shoe, onTap: () {
               deleteItem(shoe);
