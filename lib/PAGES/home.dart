@@ -22,15 +22,28 @@ class _state extends State<Home>{
   @override
   Widget build(BuildContext context) {
 
-    return Consumer<ShoeModel>(builder: (context,value,child) => Scaffold(appBar: AppBar(automaticallyImplyLeading :false,backgroundColor:  Colors.grey[100]
-      ,),
+    return Consumer<ShoeModel>(builder: (context,value,child) => Scaffold(
+      floatingActionButton: GestureDetector(
+        onTap: (){
+          value.getTotalCartValue();
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return Cart();
+          }));
+        },
+        child: Container(
+        decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.circular(10) ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Icon(Icons.shopping_cart,color: Colors.white,),
+        ),
+      ),
+      ) ,
+      appBar: AppBar(automaticallyImplyLeading :false,backgroundColor:  Colors.grey[100]
+      ,title: Text("everyone flies .... but some fly longer than others",style: TextStyle(color: Colors.black54,fontStyle: FontStyle.italic),),
+        titleTextStyle: TextStyle(fontSize: 14),),
       backgroundColor: Colors.grey[100],
       body:Padding(padding: EdgeInsets.all(25),child:
       Column(children: [
-        //Message
-        Text("everyone flies .... but some fly longer than others",style: TextStyle(color: Colors.black54,fontStyle: FontStyle.italic),),
-        SizedBox(height: 30,),
-        //Hot deals
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -39,14 +52,12 @@ class _state extends State<Home>{
           ],
         ),
         SizedBox(height: 20,),
-        // Sneakers
         Expanded(
           child: ListView.builder(itemBuilder: ( context, index){
             Shoe shoe = value.getShop()[index];
             return ShoeTile(shoe: shoe,onTap: ()=>addtocart(shoe),);
-          },scrollDirection: Axis.horizontal,itemCount: 4,),
+          },scrollDirection: Axis.horizontal,itemCount: 4,)
         )
-      
       ],),
       ),
     ));

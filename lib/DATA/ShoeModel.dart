@@ -2,6 +2,7 @@ import 'package:ecommerce_app/DATA/Shoe.dart';
 import 'package:flutter/cupertino.dart';
 
 class ShoeModel extends ChangeNotifier{
+  double sum = 0;
   List<Shoe> shop = [
     Shoe("Air Force 3 Low x Nigo", 14995.0, 'lib/Images/shoe1.webp'),
     Shoe("Spiridon x Fragment", 15995.00, 'lib/Images/shoe2.webp'),
@@ -26,6 +27,20 @@ class ShoeModel extends ChangeNotifier{
 
   void removeFromCart(Shoe shoe){
     cart.remove(shoe);
+    sum-=shoe.price;
+    notifyListeners();
+  }
+  void getTotalCartValue(){
+    double sum1=0;
+    for(Shoe s in cart){
+      sum1+=s.price;
+    }
+    sum = sum1;
+    notifyListeners();
+  }
+  void clearCart(){
+    cart.clear();
+    sum = 0;
     notifyListeners();
   }
 }

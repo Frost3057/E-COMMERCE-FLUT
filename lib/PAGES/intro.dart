@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/PAGES/auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,9 @@ class intro extends StatelessWidget{
           SizedBox(height: 60,),
           GestureDetector(
             onTap: (){
-              Navigator.pushNamed(context,'homepage');
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return auth();
+              }));
             },
             child: Container(
               height: 75,
