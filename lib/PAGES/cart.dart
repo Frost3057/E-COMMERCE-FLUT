@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/COMPONENTS/CartTile.dart';
 import 'package:ecommerce_app/DATA/Shoe.dart';
 import 'package:ecommerce_app/DATA/ShoeModel.dart';
+import 'package:ecommerce_app/Service/apiService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -40,6 +41,8 @@ class _cart extends State<Cart>{
                 GestureDetector(
                   onTap: (){
                     value.clearCart();
+                    Apiservice api = Apiservice();
+                    api.postOrder();
                   },
                   child: Container(
                     width: width*0.7,

@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_nav_bar: ^5.0.6
   device_preview: ^1.2.0
+  http:
+  json: ^0.20.2
 
 dev_dependencies:
   flutter_test:
